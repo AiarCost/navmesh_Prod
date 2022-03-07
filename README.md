@@ -9,3 +9,6 @@ This image shows the paths which the player can move around. The Player has a no
 The red areas are areas that only AI can stand on/move through
 
 Green areas are areas that only Player can stand on/ move through
+
+
+https://aiarcost.github.io/navmesh_Prod/ Build
