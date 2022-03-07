@@ -18,6 +18,7 @@ public class AgentLinkMover : MonoBehaviour
     public delegate void LinkEvent();
     public LinkEvent OnLinkStart;
     public LinkEvent OnLinkEnd;
+    bool BehaviorChange = false;
 
     IEnumerator Start()
     {
@@ -80,6 +81,20 @@ public class AgentLinkMover : MonoBehaviour
             agent.transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
             normalizedTime += Time.deltaTime / duration;
             yield return null;
+        }
+    }
+
+
+    public void ChangeBehavior()
+    {
+        BehaviorChange = !BehaviorChange;
+        if (!BehaviorChange)
+        {
+            m_Method = OffMeshLinkMoveMethod.Curve;
+        }
+        else
+        {
+            m_Method = OffMeshLinkMoveMethod.Teleport;
         }
     }
 }
